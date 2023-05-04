@@ -6,7 +6,6 @@
     <div class="container d-flex align-items-center justify-content-center w-25 bg-dark text-center text-light rounded-2 py-3 m-4">
         <?php
         if($_POST["Nombre"]==true){
-            // $nb = $_POST["Nombre"];
             echo "Nombre Romain :<br>"; 
             convertir($_POST["Nombre"]);
         }
