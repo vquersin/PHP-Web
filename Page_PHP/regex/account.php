@@ -18,7 +18,7 @@ function account(){
 }
 ?>
 <div class="container justify-content-center align-items-center my-5 w-25">
-    <form class="d-flex flex-column align-items-center bg-dark text-light rounded-4" action="index.php" method="POST">
+    <form class="d-flex flex-column align-items-center bg-dark text-light rounded-4" action="regex.php" method="POST">
         <label class="col-form-label mt-3" for="login">Login:</label>
         <div class="container d-flex flex-column justify-content-center">
             <p class="text-center mb-2"><?php account();?></p>
