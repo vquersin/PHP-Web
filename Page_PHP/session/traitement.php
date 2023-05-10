@@ -1,4 +1,4 @@
-<?php ob_start() ?>
+<?php ob_start(); ?>
 <?php session_start();
 if($_POST['prenom'] != "" && $_POST['nom']!= "" && $_POST['age']!= "" && $_POST['taille']!= "" && $_POST['optionsRadios']!= ""){
     $prenom = $_POST['prenom'];
@@ -17,13 +17,13 @@ if($_POST['prenom'] != "" && $_POST['nom']!= "" && $_POST['age']!= "" && $_POST[
     $_SESSION['taille'] = $taille;
     $_SESSION['sexe'] = $sexe;
 
-    $valid = 1;
     header("location:./compte.php");
     exit();
 }
 else{
-    $valid = 0;
-    header("location:./session.php?valid=".$valid);
+    // $valid = false;
+    $_GET['valid'] = false;
+    header("location:./session.php?valid=".$_GET['valid']);
     exit();
 }
 ?>

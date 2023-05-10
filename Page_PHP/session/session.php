@@ -1,13 +1,13 @@
-<?php ob_start() ?>
+<?php ob_start(); ?>
 <?php session_start();
-if($_GET['valid'] == 0){
+if(empty($_GET['valid'])){
     echo "<div class=\"container d-flex bg-danger fw-bold flex-row py-2 mt-5\">Tous les champs doivent être renseigner ...</div>";
 }
 
 ?>
 
 <div class="d-flex flex-row mt-5">
-    <form action="../index.php" class="justify-content-center text-center w-25">
+    <form action="./homeSession.php" class="justify-content-center text-center w-25">
         <button type="submit" class="btn btn-secondary text-secondary bg-white px-5">Home</button>
     </form>
     <form action="./traitement.php" method="POST" class="d-flex flex-column align-items-center mt-5 w-75">
