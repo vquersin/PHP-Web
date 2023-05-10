@@ -12,7 +12,6 @@
 
 <div class="d-flex flex-column align-items-center bg-secondary shadow w-100 position-sticky">
     <h1 class="text-dark fw-bold display-6 mt-3">QUERSIN Valentin</h1>
-    <div class="my-2 pt-1 w-75 bg-dark rounded-5"></div>
     <div class="d-flex flex-row text-dark fw-bold my-1">
         <p class="mx-5">💻 Developper Web and Web mobile</p>
     </div>
