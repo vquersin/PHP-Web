@@ -49,8 +49,8 @@
             </div>
             <div class="card bg-success shadow text-dark text-start mx-3 my-3" style="width: 25rem;">
                 <div class="card-body">
-                    <p class="lead fw-bold fs-2 text-black text-break"># 💸</p>
-                    <form action="#">
+                    <p class="lead fw-bold fs-2 text-black text-break">Acceuil Traduction 💸</p>
+                    <form action="./acceuil/acceuil.php">
                         <button class="btn btn-sm border-dark text-dark mt-auto">Look at the exercice</button>
                     </form>
                 </div>

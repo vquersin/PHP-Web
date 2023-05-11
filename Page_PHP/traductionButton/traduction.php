@@ -1,34 +1,43 @@
 <?php ob_start() ?>
-
-
-<div class="d-flex flex-column mt-5 gap-5">
-    <form class="d-flex flex-row justify-content-center gap-0 w-25" method="POST">
-        <!-- <input type="image" src="./img/Flag_of_France.png" width="5%" name="1"></input> -->
-        <button class="container border-0 bg-white w-25" type="submit" name="1" title="Envoyer"><img class="img-fluid" width="100%" src="./img/Flag_of_France.png" alt="" /></button>
-        <!-- <input type="image" src="./img/Flag_of_the_UK.png" width="5%" name="2"></input> -->
-        <button class="container border-0 bg-white w-25" type="submit" name="2" title="Envoyer"><img class="img-fluid" width="100%" src="./img/Flag_of_the_UK.png" alt="" /></button>
-        <!-- <input type="image" src="./img/Flag_of_Spain.png" width="5%" name="3"></input> -->
-        <button class="container border-0 bg-white w-25" type="submit" name="3" title="Envoyer"><img class="img-fluid" width="100%" src="./img/Flag_of_Spain.png" alt="" /></button>
-    </form>
-    <div class="d-flex justify-content-center"> 
-        <?php
-        if((array_key_exists('1', $_POST)) or (array_key_exists('2', $_POST)) or (array_key_exists('3', $_POST))){
-            switch($_POST){
-                case array_key_exists('1', $_POST):
-                    echo "Bienvenue sur mon site web, je suis à la recherche d'un stage en Developpement Web & Web mobile.";
-                    break;
-                case array_key_exists('2', $_POST):
-                    echo "Welcome to my website, I am looking for an internship in Web & Mobile Web Development.";
-                    break;
-                case array_key_exists('3', $_POST):
-                    echo "Bienvenido a mi sitio web, estoy buscando una pasantía en Web & Mobile Web Development.";
-                    break;
+   <div class="d-flex justify-content-center mt-5"> 
+       <?php
+       if(isset($_COOKIE['lang'])){
+            if(isset($_POST['lang'])){
+                $varLang = $_POST['lang'];
+                if($varLang != "Langues"){
+                   setcookie('lang', $varLang, time()+3600, '/traductionButton', '', false, true);
+                include "./".$varLang."/".$varLang."Index.php"; 
+                }
+                else echo "Select language ...";     
             }
-        }
-        else echo "Bienvenue sur mon site web, je suis à la recherche d'un stage en Developpement Web & Web mobile.";
-        ?>
-    </div>
-</div>
+            else{
+                $varLang = $_COOKIE['lang'];
+                if($varLang != "Langues"){
+                    include "./".$_COOKIE['lang']."/".$_COOKIE['lang']."Index.php";
+                 }
+                 else include "./fr/frIndex.php";
+            }
+       }
+       else{
+        setcookie('lang', 'fr', time()+3600, '/traductionButton', '', false, true);
+        include "./fr/frIndex.php";
+       }
+       
+       ?>
+   </div>
+   <div class="d-flex flex-column align-items-center mt-5 gap-5">
+       <form class="d-flex flex-row justify-content-center gap-2 w-25" action="./traduction.php" method="POST">
+           <select class="form_select rounded-3 bg-light border-5 border-success" name="lang">  
+                <option >Langues</option>
+                <option name="fr" value="fr">Français</option>
+                <option name="uk" value="uk">Anglais</option>
+                <option name="esp" value="esp">Espagnol</option>
+                <option name="jap" value="jap">Japonais</option>
+                <option name="pl" value="pl">Polonais</option>
+           </select>
+           <input class="btn btn-success" type="submit" value="Enregistrer"></input>
+       </form>
+   </div>
 <?php
 $content = ob_get_clean();
 require "../template.php";
